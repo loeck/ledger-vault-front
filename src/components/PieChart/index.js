@@ -17,7 +17,12 @@ export default class PieChart extends Component<
   {
     data: Array<PieChartData>,
     width: number,
-    height: number
+    height: number,
+    showCaptions?: boolean,
+    showTooltips?: boolean,
+    highlightCaptionsOnHover?: boolean,
+    tooltipText?: Function,
+    captionText?: Function
   },
   { selected: number }
 > {
@@ -42,7 +47,7 @@ export default class PieChart extends Component<
 
   componentDidMount() {
     const { selected } = this.state;
-    const { data, width, height } = this.props;
+    const { data, width, height, showTooltips } = this.props;
     const $svg = this.svg;
     if (!$svg) return;
 
@@ -103,25 +108,27 @@ export default class PieChart extends Component<
       .style("fill", d => d.data.account.currency.color);
 
     //transparent Chart for hovering purposes
-    g
-      .selectAll(".invisibleArc")
-      .data(pie(data))
-      .enter()
-      .append("g")
-      .attr("class", (d, i) => `invisibleArc ${"invisibleArc" + i}`)
-      .append("path")
-      .attr("d", d => invisibleArc(d))
-      .attr(
-        "class",
-        (d, i) => (selected !== -1 && selected !== i ? "disable" : "")
-      )
-      .style("opacity", 0) //make it transparent
-      .on("mouseover", this.handleMouseOver)
-      .on("mouseout", this.handleMouseOut);
+    showTooltips &&
+      g
+        .selectAll(".invisibleArc")
+        .data(pie(data))
+        .enter()
+        .append("g")
+        .attr("class", (d, i) => `invisibleArc ${"invisibleArc" + i}`)
+        .append("path")
+        .attr("d", d => invisibleArc(d))
+        .attr(
+          "class",
+          (d, i) => (selected !== -1 && selected !== i ? "disable" : "")
+        )
+        .style("opacity", 0) //make it transparent
+        .on("mouseover", this.handleMouseOver)
+        .on("mouseout", this.handleMouseOut);
   }
 
   componentDidUpdate(prevProps: *, prevState: *) {
     const { selected } = this.state;
+    const { showTooltips } = this.props;
     const { prevSelected } = prevState;
     const svg = d3.select(this.svg);
     const svgWidth = svg.attr("width");
@@ -135,7 +142,7 @@ export default class PieChart extends Component<
       const tooltip = d3.select(this.tooltip);
       //Place tooltip
       tooltip.classed("hide", selected === -1);
-      if (selected !== -1) {
+      if (showTooltips && selected !== -1) {
         const selectedArc = d3.select(".arc" + selected).data()[0].data;
         let orientation =
           Math.abs(selectedArc.center[0]) > Math.abs(selectedArc.center[1])
@@ -187,7 +194,7 @@ export default class PieChart extends Component<
 
   render() {
     const { selected } = this.state;
-
+    const { showCaptions, showTooltips, highlightCaptionsOnHover } = this.props;
     return (
       <div className="pieChart">
         <div className="chartTooltipWrap">
@@ -198,7 +205,7 @@ export default class PieChart extends Component<
                 this.svg = c;
               }}
             />
-            {selected !== -1 ? (
+            {showTooltips && selected !== -1 ? (
               <div
                 className="tooltip hide"
                 style={{
@@ -228,35 +235,53 @@ export default class PieChart extends Component<
             )}
           </div>
         </div>
-        <table className="currencyTable">
-          <tbody>
-            {_.map(this.props.data, (data, id) => {
-              return (
-                <tr
-                  className={`currency ${
-                    selected !== -1 && selected !== id ? "disable" : ""
-                  } ${selected !== -1 && selected === id ? "selected" : ""}`}
-                  key={id}
-                  onMouseOver={() => this.setSelected(id)}
-                  onMouseOut={() => this.setSelected(-1)}
-                >
-                  <td>
-                    <BadgeCurrency currency={data.account.currency} />
-                    <span className="uppercase currencyName">
-                      {data.account.currency.name}
-                    </span>
-                  </td>
-                  <td className="currencyBalance">
-                    <CurrencyAccountValue
-                      account={data.account}
-                      value={data.balance}
-                    />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        {showCaptions ? (
+          <table className="currencyTable">
+            <tbody>
+              {_.map(this.props.data, (data, id) => {
+                return (
+                  <tr
+                    className={`currency ${
+                      highlightCaptionsOnHover &&
+                      selected !== -1 &&
+                      selected !== id
+                        ? "disable"
+                        : ""
+                    } ${
+                      highlightCaptionsOnHover &&
+                      selected !== -1 &&
+                      selected === id
+                        ? "selected"
+                        : ""
+                    }`}
+                    key={id}
+                    onMouseOver={() =>
+                      highlightCaptionsOnHover && this.setSelected(id)
+                    }
+                    onMouseOut={() =>
+                      highlightCaptionsOnHover && this.setSelected(-1)
+                    }
+                  >
+                    <td>
+                      <BadgeCurrency currency={data.account.currency} />
+                      <span className="uppercase currencyName">
+                        {data.account.currency.name}
+                      </span>
+                    </td>
+                    <td className="currencyBalance">
+                      <CurrencyAccountValue
+                        account={data.account}
+                        value={data.balance}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        ) : (
+          ""
+        )}
       </div>
     );
   }

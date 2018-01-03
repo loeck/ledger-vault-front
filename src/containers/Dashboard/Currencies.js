@@ -39,15 +39,21 @@ function Currencies({ accounts }: { accounts: Array<Account> }) {
     },
     {}
   );
-
   const pieChartData = Object.keys(data).reduce((currenciesList, c) => {
     currenciesList.push(data[c]);
     return currenciesList;
   }, []);
-
+  console.log(data);
   return (
     <div className="dashboard-currencies">
-      <PieChart data={pieChartData} width={140} height={140} />
+      <PieChart
+        data={pieChartData}
+        showCaptions
+        showTooltips
+        highlightCaptionsOnHover
+        width={140}
+        height={140}
+      />
     </div>
   );
 }
