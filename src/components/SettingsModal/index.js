@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import debounce from "lodash/debounce";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-relative-link";
+import Select from "material-ui/Select";
+import { MenuItem } from "material-ui/Menu";
+import { withStyles } from "material-ui/styles";
+
 import SelectTab from "../../components/SelectTab/SelectTab";
 import FiatUnits from "../../fiat-units";
 import connectData from "../../restlay/connectData";
@@ -11,36 +15,83 @@ import AccountsQuery from "../../api/queries/AccountsQuery";
 import SettingsDataQuery from "../../api/queries/SettingsDataQuery";
 import SaveAccountSettingsMutation from "../../api/mutations/SaveAccountSettingsMutation";
 import SpinnerCard from "../../components/spinners/SpinnerCard";
-import Select from "material-ui/Select";
-import { MenuItem } from "material-ui/Menu";
 import DialogButton from "../buttons/DialogButton";
+
+import BadgeSecurity from "../BadgeSecurity";
+import RateLimiterValue from "../RateLimiterValue";
+import TimeLockValue from "../TimeLockValue";
+import SettingsTextField from "../SettingsTextField";
+
 import {
   BigSecurityTimeLockIcon,
   BigSecurityMembersIcon,
   BigSecurityRateLimiterIcon,
   BigSecurityAutoExpireIcon
 } from "../icons";
-import BadgeSecurity from "../BadgeSecurity";
-import RateLimiterValue from "../RateLimiterValue";
-import TimeLockValue from "../TimeLockValue";
-import SettingsTextField from "../SettingsTextField";
+
 import type {
   Account,
   SecurityScheme,
   AccountSettings
 } from "../../data/types";
+
 import type { Response as SettingsDataQueryResponse } from "../../api/queries/SettingsDataQuery";
 
 const { REACT_APP_SECRET_CODE } = process.env;
 
+const styles = {
+  base: {
+    width: 690,
+    height: 600,
+    display: "flex",
+    flexDirection: "row",
+    overflowY: "hidden",
+    position: "relative",
+
+    h2: {
+      fontSize: 18,
+      fontWeight: "normal",
+      lineHeight: "2em"
+    },
+    h3: {
+      fontSize: 11,
+      lineHeight: "2em",
+      fontWeight: 600,
+      textTransform: "uppercase"
+    },
+
+    "&> aside": {
+      width: 250,
+      backgroundColor: "#f9f9f9",
+      display: "flex",
+      flexDirection: "column",
+      overflowY: "scroll",
+      padding: "20px 30px"
+    }
+  },
+  accounts: {
+    flex: 1
+  },
+  navAccount: {
+    display: "block",
+    padding: "20px 0",
+    borderBottom: "1px solid #e2e2e2",
+    position: "relative",
+    "&> *": {
+      opacity: 0.5
+    }
+  }
+};
+
 class NavAccount extends Component<{
-  account: Account
+  account: Account,
+  classes: { [_: $Keys<typeof styles>]: string }
 }> {
   render() {
-    const { account } = this.props;
+    const { account, classes } = this.props;
     return (
       <NavLink
-        className="nav-account"
+        className={classes.navAccount}
         style={{ color: account.currency.color }}
         to={account.id}
       >
@@ -270,17 +321,22 @@ class SettingsModal extends Component<{
   settingsData: SettingsDataQueryResponse,
   accounts: Account[],
   restlay: RestlayEnvironment,
-  close: Function
+  close: Function,
+  classes: { [_: $Keys<typeof styles>]: string }
 }> {
   render() {
-    const { settingsData, accounts, restlay, close } = this.props;
+    const { settingsData, accounts, restlay, close, classes } = this.props;
     return (
-      <div className="settings modal">
+      <div className={classes.base}>
         <aside>
           <h3>ACCOUNTS</h3>
-          <div className="accounts">
+          <div className={classes.accounts}>
             {accounts.map(account => (
-              <NavAccount account={account} key={account.id} />
+              <NavAccount
+                account={account}
+                key={account.id}
+                classes={classes}
+              />
             ))}
           </div>
           <span className="version">
@@ -333,7 +389,7 @@ const RenderLoading = () => (
   </div>
 );
 
-export default connectData(SettingsModal, {
+export default connectData(withStyles(styles)(SettingsModal), {
   RenderLoading,
   queries: {
     settingsData: SettingsDataQuery,
