@@ -1,12 +1,12 @@
 //@flow
 import React, { PureComponent } from "react";
 import ValidateBadge from "../icons/full/ValidateBadge";
-import type { Member } from "../../data/types";
-import { calculateApprovingObjectMeta } from "../../data/approvingObject";
+import type { Member } from "data/types";
+import { calculateApprovingObjectMeta } from "data/approvingObject";
 import type {
   ApprovingObject,
   ApprovingObjectMeta
-} from "../../data/approvingObject";
+} from "data/approvingObject";
 
 class ApprovalStatus extends PureComponent<{
   approved: Array<string>,

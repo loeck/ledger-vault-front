@@ -3,14 +3,14 @@ import React, { Component } from "react";
 import debounce from "lodash/debounce";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-relative-link";
-import SelectTab from "../../components/SelectTab/SelectTab";
-import FiatUnits from "../../fiat-units";
-import connectData from "../../restlay/connectData";
-import type { RestlayEnvironment } from "../../restlay/connectData";
-import AccountsQuery from "../../api/queries/AccountsQuery";
-import SettingsDataQuery from "../../api/queries/SettingsDataQuery";
-import SaveAccountSettingsMutation from "../../api/mutations/SaveAccountSettingsMutation";
-import SpinnerCard from "../../components/spinners/SpinnerCard";
+import SelectTab from "components/SelectTab/SelectTab";
+import FiatUnits from "fiat-units";
+import connectData from "restlay/connectData";
+import type { RestlayEnvironment } from "restlay/connectData";
+import AccountsQuery from "api/queries/AccountsQuery";
+import SettingsDataQuery from "api/queries/SettingsDataQuery";
+import SaveAccountSettingsMutation from "api/mutations/SaveAccountSettingsMutation";
+import SpinnerCard from "components/spinners/SpinnerCard";
 import Select from "material-ui/Select";
 import { MenuItem } from "material-ui/Menu";
 import DialogButton from "../buttons/DialogButton";
@@ -28,8 +28,8 @@ import type {
   Account,
   SecurityScheme,
   AccountSettings
-} from "../../data/types";
-import type { Response as SettingsDataQueryResponse } from "../../api/queries/SettingsDataQuery";
+} from "data/types";
+import type { Response as SettingsDataQueryResponse } from "api/queries/SettingsDataQuery";
 
 const { REACT_APP_SECRET_CODE } = process.env;
 

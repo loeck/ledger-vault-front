@@ -2,13 +2,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PopBubble, DialogButton } from "../../";
-import EnableForm from "../../../components/EnableForm";
+import EnableForm from "components/EnableForm";
 import InfoModal from "../../InfoModal";
-import InputTextWithUnity from "../../../components/InputTextWithUnity";
+import InputTextWithUnity from "components/InputTextWithUnity";
 import ArrowDown from "../../icons/full/ArrowDown";
-import { addMessage } from "../../../redux/modules/alerts";
+import { addMessage } from "redux/modules/alerts";
 import { withStyles } from "material-ui/styles";
-import modals from "../../../shared/modals";
+import modals from "shared/modals";
 
 const mapDispatchToProps = dispatch => ({
   onAddMessage: (title, content, type) =>

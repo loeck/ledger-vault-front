@@ -1,6 +1,6 @@
 //@flow
 import React, { PureComponent } from "react";
-import type { Currency } from "../../data/types";
+import type { Currency } from "data/types";
 import { withStyles } from "material-ui/styles";
 
 const styles = {
