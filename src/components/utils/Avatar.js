@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import People from "../icons/thin/Profile";
 

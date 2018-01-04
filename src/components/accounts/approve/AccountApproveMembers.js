@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import find from "lodash/find";
 import MemberRow from "../../MemberRow";

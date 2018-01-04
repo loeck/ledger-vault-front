@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import Mutation from "restlay/Mutation";
 import type { Account, AccountSettings } from "data/types";
 import { success, error } from "formatters/notification";

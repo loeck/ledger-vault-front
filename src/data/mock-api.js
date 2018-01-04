@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import URL from "url";
 import findIndex from "lodash/findIndex";
 import { denormalize } from "normalizr-gre";
@@ -30,9 +30,9 @@ const mockSync = (uri: string, method: string, body: ?Object) => {
         account.name = body.name;
         account.settings = body.settings;
         return accountObj;
-      } else {
+      } 
         throw new Error("Account Not Found");
-      }
+      
     }
     switch (uri) {
       case "/organization/account":
@@ -69,9 +69,9 @@ const mockSync = (uri: string, method: string, body: ?Object) => {
       const account = mockEntities.accounts[m[1]];
       if (account) {
         return denormalize(account.id, schema.Account, mockEntities);
-      } else {
+      } 
         throw new Error("Account Not Found");
-      }
+      
     }
     m = /^\/operations\/([^/]+)\/with-account/.exec(uri);
     if (m) {
@@ -88,9 +88,9 @@ const mockSync = (uri: string, method: string, body: ?Object) => {
           mockEntities
         );
         return { operation, account };
-      } else {
+      } 
         throw new Error("Operation Not Found");
-      }
+      
     }
 
     m = q && q.pathname && /^\/valid-address\/(.+)/.exec(q.pathname);
@@ -100,9 +100,9 @@ const mockSync = (uri: string, method: string, body: ?Object) => {
         // fake mock address validation
         const valid = address.length > 10;
         return { valid };
-      } else {
+      } 
         throw new Error("missing address in query param");
-      }
+      
     }
 
     m = q && q.pathname && /^\/search\/operations$/.exec(q.pathname);
@@ -126,9 +126,9 @@ const mockSync = (uri: string, method: string, body: ?Object) => {
         );
       });
       if (after !== null) {
-        const i = findIndex(opKeys, k => "C_" + k === after);
+        const i = findIndex(opKeys, k => `C_${  k}` === after);
         if (i === -1) {
-          throw new Error("after cursor not found '" + after + "'");
+          throw new Error(`after cursor not found '${  after  }'`);
         }
         start = i + 1;
       }
@@ -152,9 +152,9 @@ const mockSync = (uri: string, method: string, body: ?Object) => {
           key => mockEntities.operations[key].account_id === account.id
         );
         if (after !== null) {
-          const i = findIndex(opKeys, k => "C_" + k === after);
+          const i = findIndex(opKeys, k => `C_${  k}` === after);
           if (i === -1) {
-            throw new Error("after cursor not found '" + after + "'");
+            throw new Error(`after cursor not found '${  after  }'`);
           }
           start = i + 1;
         }
@@ -164,9 +164,9 @@ const mockSync = (uri: string, method: string, body: ?Object) => {
         }));
         const hasNextPage = opKeys.length > start + first;
         return { edges, pageInfo: { hasNextPage } };
-      } else {
+      } 
         throw new Error("Account Not Found");
-      }
+      
     }
 
     m = /^\/calculate-fee\/([^/]+)\/([^/]+)$/.exec(uri);
@@ -292,7 +292,7 @@ export default (uri: string, init: *): ?Promise<*> => {
     return delay(300 + 800 * Math.random())
       .then(() => {
         console.warn(
-          "mock: " + method + " " + uri,
+          `mock: ${  method  } ${  uri}`,
           body || "",
           "\n=>",
           mockRes
@@ -304,10 +304,10 @@ export default (uri: string, init: *): ?Promise<*> => {
         };
       })
       .catch(e => {
-        console.warn("mock: " + method + " " + uri + " FAILED", e);
+        console.warn(`mock: ${  method  } ${  uri  } FAILED`, e);
         throw e;
       });
-  } else {
+  } 
     return null;
-  }
+  
 };

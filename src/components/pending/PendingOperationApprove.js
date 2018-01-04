@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import { withStyles } from "material-ui/styles";
 import { Link } from "react-router-dom";
@@ -25,7 +25,7 @@ function PendingOperationApprove(props: Props) {
     return <p>There are no operations to approve</p>;
   }
 
-  let totalAmount = {
+  const totalAmount = {
     fiat: operations[0].rate.fiat,
     value: operations.reduce(
       (sum, op) => countervalueForRate(op.rate, op.amount).value + sum,

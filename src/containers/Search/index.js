@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import debounce from "lodash/debounce";
 import SearchResultsCard from "./SearchResultsCard";
@@ -76,11 +76,11 @@ class Search extends Component<
     const { accounts, currencies, classes, match } = this.props;
     const { filters, debouncedFilters } = this.state;
     const refreshingKey =
-      String(debouncedFilters.keywords) +
-      " " +
-      String(debouncedFilters.accountId) +
-      "_" +
-      String(debouncedFilters.currencyName);
+      `${String(debouncedFilters.keywords) 
+      } ${ 
+      String(debouncedFilters.accountId) 
+      }_${ 
+      String(debouncedFilters.currencyName)}`;
     return (
       <div className={classes.base}>
         <SearchResultsCard

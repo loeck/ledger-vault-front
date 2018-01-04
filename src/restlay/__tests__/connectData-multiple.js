@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import renderer from "react-test-renderer";
 import connectData from "../connectData";
@@ -9,13 +9,13 @@ test("it is possible to query multiple queries", async () => {
   const net = networkFromMock(createMock());
   const render = createRender(net.network);
   const All = connectData(
-    ({ animals, animal }) => animal.name + "_" + animals.length,
+    ({ animals, animal }) => `${animal.name  }_${  animals.length}`,
     {
       queries: {
         animals: AnimalsQuery,
         animal: AnimalQuery
       },
-      //$FlowFixMe
+      // $FlowFixMe
       propsToQueryParams: ({ animalId }) => ({ animalId })
     }
   );
@@ -32,7 +32,7 @@ test("it is possible to chain 2 connectData", async () => {
   const render = createRender(net.network);
   const All = connectData(
     // $FlowFixMe
-    connectData(({ animals, animal }) => animal.name + "_" + animals.length, {
+    connectData(({ animals, animal }) => `${animal.name  }_${  animals.length}`, {
       queries: {
         animals: AnimalsQuery
       }
@@ -41,7 +41,7 @@ test("it is possible to chain 2 connectData", async () => {
       queries: {
         animal: AnimalQuery
       },
-      //$FlowFixMe
+      // $FlowFixMe
       propsToQueryParams: ({ animalId }) => ({ animalId })
     }
   );

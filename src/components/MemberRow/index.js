@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import MemberAvatar from "../MemberAvatar";
 import MemberRole from "../MemberRole";

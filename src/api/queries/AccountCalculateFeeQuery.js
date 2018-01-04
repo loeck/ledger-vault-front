@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import Query from "restlay/Query";
 import type { Account } from "data/types";
 

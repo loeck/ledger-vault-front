@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import { Overscroll } from "../../";
 import { withRouter, Redirect } from "react-router";
@@ -121,9 +121,7 @@ class AccountApprove extends Component<Props, { value: number }> {
   }
 }
 
-const RenderError = () => {
-  return <Redirect to="/pending" />;
-};
+const RenderError = () => <Redirect to="/pending" />;
 
 const connected = connectData(withStyles(styles)(AccountApprove), {
   RenderError,

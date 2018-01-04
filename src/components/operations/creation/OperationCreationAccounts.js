@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Fragment } from "react";
 import { MenuList } from "material-ui/Menu";
 import AccountMenuItem from "./AccountMenuItem";

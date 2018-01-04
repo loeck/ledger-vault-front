@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import SelectTab from "components/SelectTab/SelectTab";
 import type { Account } from "data/types";
@@ -62,10 +62,10 @@ export class QuicklookCard extends Component<Props, State> {
   }
 
   getLastWeek = () => {
-    var today = new Date();
+    const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    var lastWeek = new Date(
+    const lastWeek = new Date(
       today.getFullYear(),
       today.getMonth(),
       today.getDate() - 7
@@ -119,19 +119,19 @@ export class QuicklookCard extends Component<Props, State> {
       <DateFormat key="1" date={domain[1]} format="h:mm" />
     ];
     if (dateRange === "day") {
-      //Same day
+      // Same day
       res = [
         <DateFormat key="0" date={domain[0]} format="MMMM Do, YYYY h:mm" />,
         <DateFormat key="1" date={domain[1]} format="h:mm" />
       ];
     } else if (dateRange === "month") {
-      //Same month
+      // Same month
       res = [
         <DateFormat key="0" date={domain[0]} format="MMMM Do" />,
         <DateFormat key="1" date={domain[1]} format="Do, YYYY" />
       ];
     } else if (dateRange === "year") {
-      //Same year
+      // Same year
       res = [
         <DateFormat key="0" date={domain[0]} format="MMMM Do" />,
         <DateFormat key="1" date={domain[1]} format="MMMM Do, YYYY" />

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import type { Store } from "./dataStore";
 
 type Notification = { title: string, content: string };

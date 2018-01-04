@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import renderer from "react-test-renderer";
 import connectData from "../connectData";
@@ -9,7 +9,7 @@ test("reloading boolean gets injected by default during a transition", async () 
   const net = networkFromMock(createMock());
   const render = createRender(net.network);
   const Animal = connectData(
-    ({ animal, reloading }) => animal.id + "_" + String(reloading),
+    ({ animal, reloading }) => `${animal.id  }_${  String(reloading)}`,
     {
       queries: {
         animal: AnimalQuery

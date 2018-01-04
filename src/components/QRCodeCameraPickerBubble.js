@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import Camera from "./icons/full/Camera";
 import PopBubble from "./utils/PopBubble";

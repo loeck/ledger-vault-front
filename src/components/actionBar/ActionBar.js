@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Route, withRouter } from "react-router";
@@ -68,7 +68,7 @@ class Logo extends PureComponent<*> {
         onClick={e => {
           Object.assign(e.target.style, {
             transition: "1s",
-            transform: "skew(" + 36000 * (Math.max(this.n++, 0) % 2) + "deg)"
+            transform: `skew(${  36000 * (Math.max(this.n++, 0) % 2)  }deg)`
           });
         }}
         src="/img/logo.png"
@@ -117,7 +117,7 @@ class ActionBar extends Component<{
               </div>
             </Link>
             <Link
-              to={location.pathname + "/settings"}
+              to={`${location.pathname  }/settings`}
               className="content-header-button"
             >
               <Settings className={classes.icon} />

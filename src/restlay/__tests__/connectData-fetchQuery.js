@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import invariant from "invariant";
 import renderer from "react-test-renderer";
@@ -41,7 +41,7 @@ test("restlay.fetchQuery can be used to fetch arbitrary queries", async () => {
 test("restlay.fetchQuery from A (no dep) triggers a refresh of B (if depends on fetched data)", async () => {
   const net = networkFromMock(createMock());
   const render = createRender(net.network);
-  const Animals = connectData(({ animals }) => "" + animals.length, {
+  const Animals = connectData(({ animals }) => `${  animals.length}`, {
     queries: {
       animals: AnimalsQuery
     }

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import { withStyles } from "material-ui/styles";
 import ArrowDown from "../icons/full/ArrowDown";

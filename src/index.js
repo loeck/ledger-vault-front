@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import "open-sans-fontface/open-sans.css";
 import React from "react";
 import ReactDOM from "react-dom";

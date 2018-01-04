@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import PropTypes from "prop-types";
 import { MenuList } from "material-ui/Menu";
@@ -75,7 +75,7 @@ function Menu(
             {t("menu.dashboard")}
           </span>
         </MenuLink>
-        <MenuLink to={location.pathname + "/new-operation"}>
+        <MenuLink to={`${location.pathname  }/new-operation`}>
           <span className={classes.link}>
             <Plus className={classes.icon} />
             {t("menu.newOperation")}

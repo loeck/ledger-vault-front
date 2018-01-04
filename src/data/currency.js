@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import fiatUnits from "fiat-units";
 import type { Account, Currency, Unit, Rate } from "./types";
 
@@ -70,7 +70,7 @@ export function formatCurrencyUnit(
   );
 
   const format =
-    (alwaysShowSign && floatValue > 0 ? "+" + nonBreakableSpace : "") +
+    (alwaysShowSign && floatValue > 0 ? `+${  nonBreakableSpace}` : "") +
     (showCode ? code : "") +
     nonBreakableSpace +
     floatValue.toLocaleString("en-EN", {
@@ -88,7 +88,7 @@ export function inferUnit(
   // try to find a countervalues unit
   if (currencyName in fiatUnits) {
     return fiatUnits[currencyName];
-  } else {
+  } 
     // try to find a crypto currencies unit
     const currency = getCurrency(currencies, currencyName);
     if (currency) {
@@ -99,8 +99,8 @@ export function inferUnit(
         throw new Error(`currency "${currencyName}" have no units`);
       }
       return unit;
-    } else {
+    } 
       throw new Error(`currency "${currencyName}" not found`);
-    }
-  }
+    
+  
 }

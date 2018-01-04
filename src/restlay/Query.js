@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import type { Store } from "./dataStore";
 import { denormalize } from "normalizr-gre";
 

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import Query from "restlay/Query";
 
 export type Range = "year" | "month" | "week" | "day";

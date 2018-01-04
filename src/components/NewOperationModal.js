@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import OperationCreation from "./operations/creation/OperationCreation";
 import connectData from "restlay/connectData";

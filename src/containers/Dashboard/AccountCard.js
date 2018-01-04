@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import type { Account } from "data/types";
 import Card from "components/Card";
@@ -64,7 +64,7 @@ class AccountCard extends Component<{
             <CurrencyAccountValue
               account={account}
               value={account.balance}
-              countervalue={true}
+              countervalue
             />
           </div>
         </div>

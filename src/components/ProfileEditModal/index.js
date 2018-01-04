@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import emailValidator from "email-validator";
@@ -216,13 +216,11 @@ class ProfileEditModal extends Component<
   }
 }
 
-const RenderLoading = () => {
-  return (
+const RenderLoading = () => (
     <div style={{ width: "520px", height: "320px" }}>
       <SpinnerCard />
     </div>
   );
-};
 
 export default withRouter(
   connectData(withStyles(styles)(ProfileEditModal), {

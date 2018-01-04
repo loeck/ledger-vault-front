@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import ApprovalList from "../../ApprovalList";
 import type { Account, Operation, Member } from "data/types";

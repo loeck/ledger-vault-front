@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import Mutation from "restlay/Mutation";
 import { success, error } from "formatters/notification";
 

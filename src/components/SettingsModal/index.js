@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import debounce from "lodash/debounce";
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -312,7 +312,7 @@ class SettingsModal extends Component<{
                 }}
               />
               <Route
-                render={() => <Redirect to={"settings/" + accounts[0].id} />}
+                render={() => <Redirect to={`settings/${  accounts[0].id}`} />}
               />
             </Switch>
           ) : null}

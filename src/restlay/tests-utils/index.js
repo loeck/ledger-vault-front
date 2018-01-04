@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, combineReducers } from "redux";
@@ -69,7 +69,7 @@ export const networkFromMock = (mock: {
   tickOne: () => number,
   countTickWaiters: () => number
 } => {
-  let tickDefers = [];
+  const tickDefers = [];
   const waitTick = () => {
     const d = defer();
     tickDefers.push(d);

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { connect } from "react-redux";
 import invariant from "invariant";
 import React, { Component } from "react";
@@ -194,7 +194,7 @@ export default function connectData<
 
     setVariables = (vars: Object): Promise<void> => {
       const { variables } = this.state;
-      let newVariables = { ...variables, ...vars };
+      const newVariables = { ...variables, ...vars };
       return this.syncProps(this.props, { variables: newVariables });
     };
 
@@ -211,15 +211,11 @@ export default function connectData<
       return this.props.dispatch(this.executeQueryF(queryOrMutation));
     }
 
-    commitMutation = <Res>(m: Mutation<any, Res>): Promise<Res> => {
-      return this.execute(m);
-    };
+    commitMutation = <Res>(m: Mutation<any, Res>): Promise<Res> => this.execute(m);
 
     fetchQuery = <Res>(
       query: Query<any, Res> | ConnectionQuery<any, any>
-    ): Promise<Res> => {
-      return this.execute(query);
-    };
+    ): Promise<Res> => this.execute(query);
 
     updateQueryInstances(apiParams: Object) {
       const instances: $ObjMap<A, ExtractQuery> = {};
@@ -270,7 +266,7 @@ export default function connectData<
             const size = state.variables[key];
             if (typeof size !== "number") {
               throw new Error(
-                "a variable '" + key + "' is expected on " + displayName
+                `a variable '${  key  }' is expected on ${  displayName}`
               );
             }
             if (!needsRefresh) {
@@ -338,7 +334,7 @@ export default function connectData<
 
       const { queriesInstances } = this;
       const results = [];
-      for (let key in queriesInstances) {
+      for (const key in queriesInstances) {
         const query = queriesInstances[key];
         const cache = getPendingQueryResult(dataStore, query);
         if (cache) {
@@ -394,11 +390,9 @@ export default function connectData<
     shouldComponentUpdate(props: ClazzProps<Props>, state: State) {
       if (freezeTransition) {
         if (state.pending) return false;
-      } else {
-        if (state.pending !== this.state.pending) {
+      } else if (state.pending !== this.state.pending) {
           return true;
         }
-      }
       return (
         !shallowEqual(
           extractInputProps(this.props),

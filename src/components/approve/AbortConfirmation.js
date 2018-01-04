@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import DialogButton from "../buttons/DialogButton";
 import { TrashIcon } from "../icons";

@@ -14,7 +14,7 @@ class CurrencyUnitValue extends PureComponent<{
     const { unit, value, alwaysShowSign } = this.props;
     const className = [
       "currency-unit-value",
-      "sign-" + (value < 0 ? "negative" : value > 0 ? "positive" : "zero")
+      `sign-${  value < 0 ? "negative" : value > 0 ? "positive" : "zero"}`
     ].join(" ");
     return (
       <span

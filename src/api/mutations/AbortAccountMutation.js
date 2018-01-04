@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import Mutation from "restlay/Mutation";
 import type { Store } from "restlay/dataStore";
 import { success, error } from "formatters/notification";

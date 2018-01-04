@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import InfoModal from "../../InfoModal";
 import React, { Component } from "react";
 import { PopBubble, DialogButton } from "../../";
@@ -51,10 +51,10 @@ class AccountCreationTimeLock extends Component<Props, State> {
     if (timelock.enabled && timelock.value === 0) {
       onAddMessage("Error", "Timelock value cannot be 0", "error");
       return false;
-    } else {
+    } 
       setTimelock(this.state.timelock);
       switchInternalModal("main");
-    }
+    
   };
 
   onChangeValue = val => {

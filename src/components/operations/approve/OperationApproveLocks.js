@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import InfoModal from "../../InfoModal";
 import ApproveLockRow from "../../ApproveLockRow";
@@ -9,9 +9,7 @@ import Rates from "../../icons/thin/Rates";
 import type { Account, Operation } from "data/types";
 import { calculateApprovingObjectMeta } from "data/approvingObject";
 
-const getTimeLock = (seconds: number) => {
-  return `${Math.round(10 * (seconds / 3600)) / 10} hours delay`;
-};
+const getTimeLock = (seconds: number) => `${Math.round(10 * (seconds / 3600)) / 10} hours delay`;
 
 function OperationApproveLocks(props: {
   operation: Operation,

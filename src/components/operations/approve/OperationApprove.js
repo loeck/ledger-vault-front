@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import Footer from "../../approve/Footer";
 import { withStyles } from "material-ui/styles";
@@ -146,9 +146,7 @@ class OperationApprove extends Component<Props, { value: number }> {
   }
 }
 
-const RenderError = () => {
-  return <Redirect to="/pending" />;
-};
+const RenderError = () => <Redirect to="/pending" />;
 
 export default withRouter(
   connectData(withStyles(styles)(OperationApprove), {

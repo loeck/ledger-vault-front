@@ -97,7 +97,7 @@ class OperationCreationDetails extends Component<
       {
         amount,
         amountIsValid: satoshis <= max && decimals.length <= magnitude,
-        satoshis: satoshis
+        satoshis
       },
       this.validateTab
     );

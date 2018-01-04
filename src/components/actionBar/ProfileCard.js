@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -141,7 +141,7 @@ class ProfileCard extends Component<
         >
           <div onClick={this.onCloseBubble}>
             <MenuList>
-              <MenuLink to={location.pathname + "/profile-edit"}>
+              <MenuLink to={`${location.pathname  }/profile-edit`}>
                 <span className={classes.link}>
                   {t("actionBar.editProfile")}
                 </span>

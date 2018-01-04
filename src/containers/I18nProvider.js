@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { Children, Component } from "react";
 import PropTypes from "prop-types";
 import Polyglot from "node-polyglot";

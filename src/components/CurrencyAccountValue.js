@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import CurrencyUnitValue from "./CurrencyUnitValue";
 import { countervalueForRate, getAccountCurrencyUnit } from "data/currency";
@@ -21,7 +21,7 @@ class CurrencyAccountValue extends Component<{
 }> {
   render() {
     const { account, countervalue, value, rate, ...rest } = this.props;
-    let unitValue = countervalue
+    const unitValue = countervalue
       ? countervalueForRate(rate || account.currencyRate, value)
       : { value, unit: getAccountCurrencyUnit(account) };
     return <CurrencyUnitValue {...rest} {...unitValue} />;

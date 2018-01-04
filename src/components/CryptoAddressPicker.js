@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import Input, { InputAdornment } from "material-ui/Input";
 import QRCodeCameraPickerBubble from "./QRCodeCameraPickerBubble";

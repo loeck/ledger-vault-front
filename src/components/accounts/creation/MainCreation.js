@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import _ from "lodash";
 import connectData from "restlay/connectData";

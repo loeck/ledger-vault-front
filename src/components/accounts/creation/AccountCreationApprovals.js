@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import InfoModal from "../../InfoModal";
 import DialogButton from "../../buttons/DialogButton";

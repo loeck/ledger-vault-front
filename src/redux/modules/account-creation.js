@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import _ from "lodash";
 import { LOGOUT } from "./auth";
 import type { Member, Currency } from "data/types";
@@ -182,7 +182,7 @@ export default function reducer(
 
       return {
         ...state,
-        quorum: quorum,
+        quorum,
         approvers: cMembers
       };
     }

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import invariant from "invariant";
 import renderer from "react-test-renderer";
@@ -48,14 +48,14 @@ test("multiple queries trigger only one React update", async () => {
   let renderCount = 0;
   const All = connectData(
     ({ animals, animal }) => (
-      ++renderCount, animal.name + "_" + animals.length
+      ++renderCount, `${animal.name  }_${  animals.length}`
     ),
     {
       queries: {
         animals: AnimalsQuery,
         animal: AnimalQuery
       },
-      //$FlowFixMe
+      // $FlowFixMe
       propsToQueryParams: ({ animalId }) => ({ animalId })
     }
   );

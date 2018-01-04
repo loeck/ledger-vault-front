@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import groupBy from "lodash/groupBy";
 import size from "lodash/size";

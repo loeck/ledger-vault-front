@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { PureComponent } from "react";
 import SpinnerCard from "../spinners/SpinnerCard";
 import { withStyles } from "material-ui/styles";

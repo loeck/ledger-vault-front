@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import MemberAvatar from "../MemberAvatar";
 import ValidateBadge from "../icons/full/ValidateBadge";
@@ -62,10 +62,10 @@ function Approvalmember(props: {
 }) {
   const { member, isApproved, classes } = props;
 
-  const name = member.first_name + " " + member.last_name;
+  const name = `${member.first_name  } ${  member.last_name}`;
   let slice;
   if (name.length > 10) {
-    slice = name.slice(0, 10) + "...";
+    slice = `${name.slice(0, 10)  }...`;
   } else {
     slice = name;
   }

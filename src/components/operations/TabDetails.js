@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component, PureComponent } from "react";
 import type { Operation, Account } from "data/types";
 import { withStyles } from "material-ui/styles";

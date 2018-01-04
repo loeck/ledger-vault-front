@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import type { Unit } from "data/types";
 import LineChart from "components/LineChart";

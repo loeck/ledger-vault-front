@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import fetchWithRetries from "./fetchWithRetries";
 
 export function NetworkError(obj: *) {

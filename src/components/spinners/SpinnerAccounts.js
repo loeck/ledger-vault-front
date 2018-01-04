@@ -1,8 +1,7 @@
 import React from "react";
 import CircularProgress from "material-ui/Progress/CircularProgress";
 
-const SpinnerAccounts = () => {
-  return (
+const SpinnerAccounts = () => (
     <CircularProgress
       size={25}
       style={{
@@ -12,6 +11,5 @@ const SpinnerAccounts = () => {
       }}
     />
   );
-};
 
 export default SpinnerAccounts;

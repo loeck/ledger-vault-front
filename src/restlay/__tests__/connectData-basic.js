@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import renderer from "react-test-renderer";
 import connectData from "../connectData";

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import People from "../icons/thin/Profile";
 import classnames from "classnames";
@@ -43,7 +43,7 @@ function Avatar(props: {
       {url ? (
         <img src={props.url} alt="Profile avatar" />
       ) : (
-        <People width={width + "px"} height={height + "px"} color="white" />
+        <People width={`${width  }px`} height={`${height  }px`} color="white" />
       )}
     </span>
   );

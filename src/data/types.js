@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import FiatUnits from "fiat-units";
 
 // This contains all the flow types for the Data Model (coming from the API)

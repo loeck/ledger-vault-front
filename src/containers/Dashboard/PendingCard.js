@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import connectData from "restlay/connectData";
 import ViewAllLink from "components/ViewAllLink";
@@ -113,14 +113,14 @@ class PendingCard extends Component<{
           {approveOperations
             .map((operation, i) => (
               <OperationRow
-                key={"op_" + i}
+                key={`op_${  i}`}
                 operation={operation}
                 account={accounts.find(a => a.id === operation.account_id)}
               />
             ))
             .concat(
               approveAccounts.map((account, i) => (
-                <AccountRow key={"ac_" + i} account={account} />
+                <AccountRow key={`ac_${  i}`} account={account} />
               ))
             )}
         </div>

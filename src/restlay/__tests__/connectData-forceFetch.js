@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import invariant from "invariant";
 import renderer from "react-test-renderer";
@@ -13,20 +13,20 @@ test("forceFetch will trigger a refresh of siblings that depend on same query", 
   let rlay;
   const All = connectData(
     ({ animals, animal }) =>
-      animal.name + "_" + animals.reduce((s, a) => s + a.age, 0),
+      `${animal.name  }_${  animals.reduce((s, a) => s + a.age, 0)}`,
     {
       queries: {
         animals: AnimalsQuery,
         animal: AnimalQuery
       },
-      //$FlowFixMe
+      // $FlowFixMe
       propsToQueryParams: ({ animalId }) => ({ animalId })
     }
   );
   const Animal = connectData(
-    //$FlowFixMe
+    // $FlowFixMe
     ({ observed, restlay, animal }) => (
-      observed ? (rlay = restlay) : null, animal.name + "_" + animal.age
+      observed ? (rlay = restlay) : null, `${animal.name  }_${  animal.age}`
     ),
     {
       queries: {
@@ -91,14 +91,14 @@ test("forceFetch will reload multiple queries", async () => {
   const All = connectData(
     ({ animals, animal, restlay }) => (
       (rlay = restlay),
-      animal.name + "_" + animals.reduce((s, a) => s + a.age, 0)
+      `${animal.name  }_${  animals.reduce((s, a) => s + a.age, 0)}`
     ),
     {
       queries: {
         animals: AnimalsQuery,
         animal: AnimalQuery
       },
-      //$FlowFixMe
+      // $FlowFixMe
       propsToQueryParams: ({ animalId }) => ({ animalId })
     }
   );

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import invariant from "invariant";
 import renderer from "react-test-renderer";
@@ -30,10 +30,10 @@ test("500 concurrent components only trigger one query and don't break", async (
         .map((_, k) => <Animals key={k} />),
       ...Array(50)
         .fill(null)
-        .map((_, k) => <Animal key={"max_" + k} animalId="id_max" />),
+        .map((_, k) => <Animal key={`max_${  k}`} animalId="id_max" />),
       ...Array(400)
         .fill(null)
-        .map((_, k) => <Animal key={"doge_" + k} animalId="id_doge" />)
+        .map((_, k) => <Animal key={`doge_${  k}`} animalId="id_doge" />)
     ])
   );
   invariant(restlay, "restlay is defined");

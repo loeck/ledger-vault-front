@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import type {
   AccountEntity,
   CurrencyEntity,
@@ -105,8 +105,8 @@ const mockCurrencies: CurrencyEntity[] = [
 ];
 
 const genNote = (i: number): NoteEntity => ({
-  id: "" + i,
-  title: "Note " + i,
+  id: `${  i}`,
+  title: `Note ${  i}`,
   body:
     "This is a note label. Lorem ipsum, is it ok ? This is a note label. Lorem ipsum, is it ok ? ",
   created_at: new Date(
@@ -115,7 +115,7 @@ const genNote = (i: number): NoteEntity => ({
     1 + Math.round(20 * Math.random()),
     10
   ).toISOString(),
-  author: "mock_" + i % 5
+  author: `mock_${  i % 5}`
 });
 
 const genPubKey = () =>
@@ -337,7 +337,7 @@ const accounts: { [_: string]: AccountEntity } = {
       week: 118283484,
       month: 2182834846
     },
-    receive_address: "1" + genPubKey().slice(0, 33),
+    receive_address: `1${  genPubKey().slice(0, 33)}`,
     approved: []
   },
   "1": {
@@ -366,7 +366,7 @@ const accounts: { [_: string]: AccountEntity } = {
       week: 11283484,
       month: 182834846
     },
-    receive_address: "1" + genPubKey().slice(0, 33),
+    receive_address: `1${  genPubKey().slice(0, 33)}`,
     approved: []
   },
   "2": {
@@ -395,7 +395,7 @@ const accounts: { [_: string]: AccountEntity } = {
       week: 0.7 * 3258983178200000,
       month: 0.9 * 3258983178200000
     },
-    receive_address: "1" + genPubKey().slice(0, 33),
+    receive_address: `1${  genPubKey().slice(0, 33)}`,
     approved: ["hash"]
   },
   "3": {
@@ -424,7 +424,7 @@ const accounts: { [_: string]: AccountEntity } = {
       week: 0.5 * 99058831782000,
       month: 0
     },
-    receive_address: "1" + genPubKey().slice(0, 33),
+    receive_address: `1${  genPubKey().slice(0, 33)}`,
     approved: ["hash"]
   },
   "4": {
@@ -453,7 +453,7 @@ const accounts: { [_: string]: AccountEntity } = {
       week: 11823484,
       month: 2218234846
     },
-    receive_address: "1" + genPubKey().slice(0, 33),
+    receive_address: `1${  genPubKey().slice(0, 33)}`,
     approved: []
   }
 };
@@ -673,7 +673,7 @@ const operations: { [_: string]: OperationEntity } = {
 };
 
 for (let i = 0; i < 500; i += 1) {
-  const uuid = "mock_ltc_" + i;
+  const uuid = `mock_ltc_${  i}`;
   const t = 1500000000000 + i * 23000000;
   operations[uuid] = genOperation({
     uuid,
@@ -707,14 +707,14 @@ export const genBalance = (
   accountId: number,
   range: $Keys<typeof timeTable>
 ) => {
-  let balance = [];
-  const begin_t = new Date().getTime() - timeTable[range]; //account creation date
-  const final_t = new Date().getTime(); //Now
+  const balance = [];
+  const begin_t = new Date().getTime() - timeTable[range]; // account creation date
+  const final_t = new Date().getTime(); // Now
   const dt = final_t - begin_t;
   const nb_transac = 500;
   const granularity = 2 * (granularityRangeEg[range] + 1);
-  const step = dt / (nb_transac / granularity); //step between each datapoint
-  let t = begin_t;
+  const step = dt / (nb_transac / granularity); // step between each datapoint
+  const t = begin_t;
   let date = begin_t;
   for (
     let i = 0;
@@ -735,8 +735,8 @@ export const genBalance = (
         )
     ]);
   }
-  let counterValueBalance = balance.map(a => [a[0], a[1] * Math.random()]);
-  return { balance: balance, counterValueBalance: counterValueBalance };
+  const counterValueBalance = balance.map(a => [a[0], a[1] * Math.random()]);
+  return { balance, counterValueBalance };
 };
 
 export default {

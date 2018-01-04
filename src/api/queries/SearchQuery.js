@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import ConnectionQuery from "restlay/ConnectionQuery";
 import schema from "data/schema";
 import type { Operation } from "data/types";
@@ -17,7 +17,7 @@ const uri = ({ keywords, accountId, currencyName }: In) => {
   if (accountId) query.accountId = accountId;
   if (currencyName) query.currencyName = currencyName;
   const q = queryString.stringify(query);
-  return "/search/operations" + (q ? "?" : "") + q;
+  return `/search/operations${  q ? "?" : ""  }${q}`;
 };
 
 // Search operations

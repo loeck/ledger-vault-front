@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import invariant from "invariant";
 import { findDOMNode } from "react-dom";

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import Polyglot from "node-polyglot";
 import { connect } from "react-redux";

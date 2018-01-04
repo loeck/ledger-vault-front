@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import invariant from "invariant";
 import renderer from "react-test-renderer";
@@ -140,7 +140,7 @@ test("a thrown error can be recovered after an update", async () => {
     ({ animal }) => {
       if (animal.id === "id_max") {
         const err = new Error("sorry_max");
-        //$FlowFixMe
+        // $FlowFixMe
         err.suppressReactErrorLogging = true;
         throw err;
       }

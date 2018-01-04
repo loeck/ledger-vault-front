@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import locale from "./locale";
 import auth from "./auth";
 import alerts from "./alerts";

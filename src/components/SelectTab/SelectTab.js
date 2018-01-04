@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import classnames from "classnames";
 import colors from "shared/colors";
@@ -57,8 +57,7 @@ class SelectTab extends Component<Props, {}> {
     const { tabs, onChange, selected, theme, classes } = this.props;
     return (
       <div className={classnames(classes.base, classes[theme])}>
-        {tabs.map((elem, i) => {
-          return (
+        {tabs.map((elem, i) => (
             <div
               className={classnames(classes.tab, {
                 [classes.selected]: i === selected
@@ -68,8 +67,7 @@ class SelectTab extends Component<Props, {}> {
             >
               {elem}
             </div>
-          );
-        })}
+          ))}
       </div>
     );
   }

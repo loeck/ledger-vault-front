@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { PureComponent } from "react";
 import ValidateBadge from "../icons/full/ValidateBadge";
 import type { Member } from "data/types";

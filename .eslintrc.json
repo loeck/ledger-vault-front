@@ -3,28 +3,41 @@
   "env": {
     "node": true,
     "browser": true,
-    "commonjs": true,
-    "es6": true,
     "jest": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:flowtype/recommended",
-    "prettier"
+    "airbnb",
+    "prettier",
+    "prettier/react"
   ],
-  "plugins": ["flowtype", "react"],
+  "plugins": ["flowtype"],
   "rules": {
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"],
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0,
+    "no-shadow": 0,
+    "no-nested-ternary": 0,
     "flowtype/generic-spacing": 0,
-    "flowtype/space-after-type-colon": 0
+    "flowtype/space-after-type-colon": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/require-default-props": 0,
+    "react/default-props-match-prop-types": 0,
+    "react/no-unused-prop-types": 0,
+    "import/first": 0,
+    "import/prefer-default-export": 0
   },
   "settings": {
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
     }
   }
 }

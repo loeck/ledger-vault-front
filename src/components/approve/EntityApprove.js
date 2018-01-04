@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import connectData from "restlay/connectData";
 import AbortConfirmation from "./AbortConfirmation";
@@ -52,14 +52,14 @@ class EntityApprove extends Component<Props, State> {
         )
         .then(() => restlay.fetchQuery(new PendingsQuery()))
         .then(this.close);
-    } else {
+    } 
       return delay(500)
         .then(() =>
           restlay.commitMutation(new ApproveOperation({ operationId: id }))
         )
         .then(() => restlay.fetchQuery(new PendingsQuery()))
         .then(this.close);
-    }
+    
   };
 
   abort = () => {
@@ -71,14 +71,14 @@ class EntityApprove extends Component<Props, State> {
         .then(() => restlay.commitMutation(new AbortAccount({ accountId: id })))
         .then(() => restlay.fetchQuery(new PendingsQuery()))
         .then(this.close);
-    } else {
+    } 
       return delay(500)
         .then(() =>
           restlay.commitMutation(new AbortOperation({ operationId: id }))
         )
         .then(() => restlay.fetchQuery(new PendingsQuery()))
         .then(this.close);
-    }
+    
   };
 
   render() {

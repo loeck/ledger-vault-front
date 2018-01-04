@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 // FIXME drop this file. we should directly import the font we need. also the global className are to be removed
 

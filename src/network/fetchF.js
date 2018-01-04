@@ -1,4 +1,4 @@
-//@flow
+// @flow
 let fetchF;
 if (process.env.NODE_ENV !== "development") {
   fetchF = fetch;

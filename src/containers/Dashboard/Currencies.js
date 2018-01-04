@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import connectData from "restlay/connectData";
 import { withStyles } from "material-ui/styles";
@@ -29,12 +29,12 @@ function Currencies({
   accounts: Array<Account>,
   classes: Object
 }) {
-  //compute currencies from accounts balance
+  // compute currencies from accounts balance
   const data: AggregatedData = accounts.reduce(
     (acc: AggregatedData, account) => {
       const currency_name = account.currency.name;
       const balance = account.balance;
-      //check if currency already added
+      // check if currency already added
       if (!acc[currency_name]) {
         acc[currency_name] = {
           account,

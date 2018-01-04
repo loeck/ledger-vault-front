@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import InfoModal from "../../InfoModal";
 import ApprovalList from "../../ApprovalList";

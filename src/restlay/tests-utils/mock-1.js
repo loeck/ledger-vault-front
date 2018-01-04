@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import URL from "url";
 import findIndex from "lodash/findIndex";
 import Query from "../Query";
@@ -27,7 +27,7 @@ export class AnimalsQuery extends Query<void, Animal[]> {
 }
 
 export class AnimalQuery extends Query<{ animalId: string }, Animal> {
-  uri = "/animals/" + this.props.animalId;
+  uri = `/animals/${  this.props.animalId}`;
   responseSchema = schemaAnimal;
   cacheMaxAge = 2;
 }
@@ -48,7 +48,7 @@ export class AddAnimalMutation extends Mutation<{ animal: Object }, Animal> {
 }
 
 export default () => {
-  const genId = ((id: number) => () => "id_" + ++id)(0);
+  const genId = ((id: number) => () => `id_${  ++id}`)(0);
 
   const animals: Animal[] = [
     {
@@ -69,7 +69,7 @@ export default () => {
   const world: Animal[] = [];
   for (let i = 0; i < 1000; i++) {
     world.push({
-      id: "w_" + i,
+      id: `w_${  i}`,
       age: Math.ceil(10 * (1 + Math.cos(i * 77))),
       name: Array(6)
         .fill(null)
@@ -99,9 +99,9 @@ export default () => {
       const cursorPrefixToNodeId = "C_"; // the cursor can be arbitrary and not necessarily === node.id
       let start = 0;
       if (after !== null) {
-        const i = findIndex(world, a => "C_" + a.id === after);
+        const i = findIndex(world, a => `C_${  a.id}` === after);
         if (i === -1) {
-          throw new Error("after cursor not found '" + after + "'");
+          throw new Error(`after cursor not found '${  after  }'`);
         }
         start = i + 1;
       }

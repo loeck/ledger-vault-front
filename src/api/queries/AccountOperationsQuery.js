@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import ConnectionQuery from "restlay/ConnectionQuery";
 import schema from "data/schema";
 import type { Operation } from "data/types";

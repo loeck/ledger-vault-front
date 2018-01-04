@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import connectData from "restlay/connectData";
 import DashboardLastOperationsQuery from "api/queries/DashboardLastOperationsQuery";

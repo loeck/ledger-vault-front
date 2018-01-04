@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ArrowDown from "../icons/full/ArrowDown";
@@ -6,6 +6,7 @@ import colors from "shared/colors";
 import { withStyles } from "material-ui/styles";
 import classnames from "classnames";
 import PopBubble from "../utils/PopBubble.js";
+
 const contextTypes = {
   onOptionClick: PropTypes.func.isRequired
 };

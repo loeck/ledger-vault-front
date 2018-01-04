@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import "u2f-api-polyfill";
 import network from "network";
 
@@ -201,9 +201,9 @@ export default function reducer(
       if (shouldLogout) {
         window.localStorage.removeItem("token");
         return createInitialState();
-      } else {
+      } 
         return state;
-      }
+      
     }
     case CHECK_TEAM_ERROR:
       return { ...state, teamError: true, isCheckingTeam: false };

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { PureComponent } from "react";
 import CurrencyAccountValue from "../../CurrencyAccountValue";
 import CurrencyUnitValue from "../../CurrencyUnitValue";

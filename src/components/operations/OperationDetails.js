@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import ModalLoading from "components/ModalLoading";
 import PropTypes from "prop-types";
@@ -57,7 +57,7 @@ class OperationDetails extends Component<Props, *> {
     return (
       <div className={classes.base}>
         <header>
-          <h2>{"Operation's details"}</h2>
+          <h2>Operation's details</h2>
           <Tabs value={value} onChange={this.handleChange}>
             <Tab label="Overview" disableRipple />
             <Tab label="Details" disableRipple />

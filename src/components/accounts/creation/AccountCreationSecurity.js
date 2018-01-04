@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import RateLimiterValue from "../../RateLimiterValue";
 import TimeLockValue from "../../TimeLockValue";

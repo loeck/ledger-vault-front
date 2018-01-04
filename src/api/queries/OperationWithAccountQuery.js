@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import Query from "restlay/Query";
 import schema from "data/schema";
 import type { Operation, Account } from "data/types";

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import connectData from "restlay/connectData";
 import Card from "components/Card";
@@ -9,6 +9,7 @@ import InfiniteScrollable from "components/InfiniteScrollable";
 import DataTableOperation from "components/DataTableOperation";
 import type { Account, Operation } from "data/types";
 import type { Connection } from "restlay/ConnectionQuery";
+
 const columnIds = ["date", "account", "countervalue", "amount"];
 
 class SearchResults extends Component<{

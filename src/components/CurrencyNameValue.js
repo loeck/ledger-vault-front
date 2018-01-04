@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import connectData from "restlay/connectData";
 import CurrenciesQuery from "api/queries/CurrenciesQuery";
@@ -45,7 +45,7 @@ class CurrencyNameValue extends Component<Props> {
         "CurrencyNameValue: Can't calculate countervalue without an explicit rate. Consider using CurrencyAccountValue component instead"
       );
     }
-    let unitValue =
+    const unitValue =
       countervalue && rate
         ? countervalueForRate(rate, value)
         : { value, unit: inferUnit(currencies, currencyName) };

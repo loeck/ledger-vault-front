@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import BadgeCurrency from "../BadgeCurrency";
 import type { Currency } from "data/types";

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PopBubble, DialogButton } from "../../";
@@ -51,10 +51,10 @@ class AccountCreationRateLimiter extends Component<Props, State> {
     if (rate_limiter.enabled && rate_limiter.value === 0) {
       onAddMessage("Error", "Rate limiter value cannot be 0", "error");
       return false;
-    } else {
+    } 
       setRatelimiter(this.state.rate_limiter);
       switchInternalModal("main");
-    }
+    
   };
 
   onChangeValue = val => {

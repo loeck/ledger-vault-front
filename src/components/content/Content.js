@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import { Route, Switch, Redirect } from "react-router";
 import { SandBox, AccountView, PendingRequests } from "../../containers"; // Tests

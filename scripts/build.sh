@@ -6,4 +6,4 @@ if [ -z "$REACT_APP_VERSION" ]; then
   exit 1
 fi
 
-npm run build-css && react-scripts build
+react-scripts build

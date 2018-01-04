@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 import QrCode from "qrcode-reader";
 
@@ -198,7 +198,7 @@ export default class QRCodeCameraPickerCanvas extends Component<
       justifyContent: "center",
       background: "#eee",
       color: "#666",
-      fontSize: (width / 30).toFixed(0) + "px",
+      fontSize: `${(width / 30).toFixed(0)  }px`,
       overflow: "hidden"
     };
     const mainStyle = {

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { Component } from "react";
 import PropTypes from "prop-types";
 import type { ContextOverridableOpts } from "./connectData";
@@ -46,7 +46,7 @@ class RestlayProvider extends Component<{
 
   network = (...props: *) => this.props.network(...props);
 
-  /////////////////
+  // ///////////////
 
   render() {
     const { children } = this.props;

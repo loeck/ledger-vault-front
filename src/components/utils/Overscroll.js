@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from "react";
 
 /**
@@ -81,7 +81,7 @@ class Overscroll extends Component<{
     };
     const copyStyle = {
       position: "absolute",
-      filter: "blur(" + blurSize + "px)",
+      filter: `blur(${  blurSize  }px)`,
       overflow: "hidden",
       width: "100%",
       top: `-${top - paddingY}px`,
@@ -119,8 +119,8 @@ class Overscroll extends Component<{
       paddingTop: paddingY,
       paddingBottom: paddingY,
       // for hiding ugly scrollbar
-      marginRight: "-" + pushScrollBarRight + "px",
-      paddingRight: pushScrollBarRight + paddingX + "px"
+      marginRight: `-${  pushScrollBarRight  }px`,
+      paddingRight: `${pushScrollBarRight + paddingX  }px`
     };
 
     return (

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { withStyles } from "material-ui/styles";
 import React, { PureComponent } from "react";
 

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { normalize } from "normalizr-gre";
 import URL from "url";
 import Mutation from "./Mutation";
@@ -52,7 +52,7 @@ const initialState: Store = {
 function mergeEntities(prev: Entities, patch: Entities): Entities {
   const all = { ...patch, ...prev }; // potentially there are new collections
   const entities = {};
-  for (let type in all) {
+  for (const type in all) {
     const patchColl = patch[type];
     const oldColl = all[type];
     entities[type] = merge(oldColl, patchColl, isEqual);
@@ -86,7 +86,7 @@ const accumulateConnectionEdges = <T>(
       }
       if (cursors[e.cursor]) {
         console.warn(
-          "API issue: duplicate cursor found at index " + i + ": " + e.cursor
+          `API issue: duplicate cursor found at index ${  i  }: ${  e.cursor}`
         );
       }
       cursors[e.cursor] = true;
@@ -138,7 +138,7 @@ export const executeQueryOrMutation =
           : size;
       if (count < 0) {
         const cacheKey = queryOrMutation.getCacheKey();
-        //$FlowFixMe
+        // $FlowFixMe
         return Promise.resolve().then(() => {
           // needs to happen in async
           dispatch({
@@ -152,7 +152,7 @@ export const executeQueryOrMutation =
       } else if (count === 0) {
         // $FlowFixMe
         return Promise.resolve((cache && cache.result) || emptyConnection);
-      } else {
+      } 
         const params = queryOrMutation.getPaginationURLParams(
           count,
           shouldReset || !cache || cache.result.edges.length === 0
@@ -164,7 +164,7 @@ export const executeQueryOrMutation =
           pathname,
           query: { ...query, ...params }
         });
-      }
+      
     }
 
     if (queryOrMutation instanceof Mutation) {
@@ -232,7 +232,7 @@ const reducers = {
   [DATA_CONNECTION_SPLICE]: (store, { size, cacheKey }) => {
     if (!cacheKey) {
       return store;
-    } else {
+    } 
       return {
         ...store,
         results: {
@@ -243,7 +243,7 @@ const reducers = {
           }
         }
       };
-    }
+    
   },
   [DATA_FETCHED]: (
     store,
@@ -252,7 +252,7 @@ const reducers = {
     const entities = mergeEntities(store.entities, result.entities);
     if (!cacheKey) {
       return { ...store, entities };
-    } else {
+    } 
       return {
         entities,
         results: {
@@ -272,7 +272,7 @@ const reducers = {
           }
         }
       };
-    }
+    
   }
 };
 
